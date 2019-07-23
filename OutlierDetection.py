@@ -25,9 +25,12 @@ parser.add_option('-n', '--negcontrol-file', type = 'str', dest = 'negcontrol_fi
 parser.add_option('-p', '--poscontrol-file', type = 'str', dest = 'poscontrol_file', default = '',
                   help = 'Positive control file')
 parser.add_option('-v', '--variance', type = 'float', dest = 'var',
-                  default = 0.80, help = 'Variance explained by PCA, min = 0, max = 1')
+                  default = 0.80, help = 'Variance explained by PCA, min = 0, max = 1. Default is 0.80')
 parser.add_option('-t', '--threshold', type = 'float', dest = 'thres',
-                  default = 10, help = 'Fraction of WT outliers in a population, min = 0, max = 100')
+                  default = 10, help = 'Fraction of WT outliers in a population, min = 0, max = 100. Default is 10')
+parser.add_option('-m', '--heatmap', dest='heatmap', action='store_true',
+                  help="Use this flag if input data has Row and Column information. This will generate a heatmap "
+                       "representing the penetrance values for each plate's wells")
 (options, args) = parser.parse_args()
 
 # Options
@@ -41,6 +44,7 @@ neg_control_file = options.negcontrol_file
 pos_control_file = options.poscontrol_file
 variance = options.var
 outlier_threshold = options.thres
+heatmap = options.heatmap
 
 # Screen name from the input filename
 screen_name = filename.split('/')[-1][:-4]
@@ -67,7 +71,8 @@ if __name__ == '__main__':
     # Prepare penetrance files
     df_OUT = prepare_output_well(df, plates, output_files, rawdata, identifier_features, location_features)
     df_OUT_strain = prepare_output_strain(df, identifier, output_files, rawdata, identifier_features, location_features)
-    plot_heatmaps(df_OUT, plates, location_features, output_files)
+    if heatmap:
+        plot_heatmaps(df_OUT, plates, location_features, output_files)
 
     # Plot performance results
     plot_performance(pos_control_file, df_OUT_strain, wt_strains, identifier, identifier_features, output_files)

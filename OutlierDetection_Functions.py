@@ -408,7 +408,6 @@ def do_PCA(df, output, var, feature_set, save_pca, identifier_features, location
             else:
                 pca_df['Plate'] = df['Plate']
         for i in range(num_PCs):
-            print('i: %d' %i)
             pca_df['PC%d' %(i+1)] = df['DataPCA'][:,i]
         pca_df.to_csv(output['PCAResult'], index=False)
 
@@ -734,7 +733,9 @@ def prepare_output_well(df, plates, output, rawdata, identifier_features, locati
     if not rawdata:
         well_identifier = 'Row_Col'
     else:
-        well_identifier = 'well_number'
+        for f in location_features:
+            if 'well' in f.lower():
+                well_identifier = f
 
     if not rawdata:
         final_df[well_identifier] = final_df.Row.map(int).map(str) + '_' + final_df.Column.map(int).map(str)
@@ -811,7 +812,8 @@ def prepare_output_strain(df, identifier, output, rawdata, identifier_features, 
                        final_df.well_number.map(str)
 
     # Initialize output folder
-    final_df_output = pd.DataFrame(columns = identifier_features + ['Num_cells', 'Num_wells', 'Penetrance', 'P-value'])
+    final_df_output = pd.DataFrame(columns = identifier_features + location_features  +
+                                             ['Num_cells', 'Num_wells', 'Penetrance', 'P-value'])
     this_row = 0
 
     # Regroup this dataframes by strainIDs
@@ -831,7 +833,9 @@ def prepare_output_strain(df, identifier, output, rawdata, identifier_features, 
 
         # Append them to corresponding variables
         line = []
-        for i in identifier_features:
+        for i in identifier_features + location_features:
+            if 'plate' in i.lower():
+                i = 'Plate'
             line.append(df_strain[i].unique()[0])
         line.append(num_cells)
         line.append(num_wells)
@@ -849,7 +853,7 @@ def prepare_output_strain(df, identifier, output, rawdata, identifier_features, 
 
 
 def plot_heatmaps(df, plates, location_features, output):
-    """ Plots penetrance values for each plate's wells
+    """ Plots penetrance values for each plate's wells if input data has row and column information
 
             Args:
                 df:                 Existing combined dictionary
@@ -1136,11 +1140,10 @@ def plot_performance(pos_control_file, df, wt, identifier, identifier_features, 
                 output:                 Output filenames
             """
 
-    print('Plotting performance results...')
-    log_write(output['log'], 'Plotting performance results...\n')
-
     if pos_control_file != '':
-        print('Plotting performances...')
+        print('Plotting performance results...')
+        log_write(output['log'], 'Plotting performance results...\n')
+
         output_ROC_PR = [output['ROCCurve'], output['PRCurve'], output['CurveNumbers']]
         pos_control = pd.read_csv(pos_control_file)
 
