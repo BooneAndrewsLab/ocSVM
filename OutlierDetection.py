@@ -18,8 +18,6 @@ parser.add_option('-s', '--features_file', default='',
                   help='CellProfiler feature sets to include. This file is required if input data is raw.')
 parser.add_option('-l', '--locations_file', default='',
                   help='Location features. This file is required if input data is raw.')
-parser.add_option('-o', '--output_pca', action='store_true', 
-                  help='Save PCA results')
 parser.add_option('-n', '--negcontrol-file', type = 'str', dest = 'negcontrol_file', default = '',
                   help = 'Negative control file')
 parser.add_option('-p', '--poscontrol-file', type = 'str', dest = 'poscontrol_file', default = '',
@@ -28,6 +26,8 @@ parser.add_option('-v', '--variance', type = 'float', dest = 'var',
                   default = 0.80, help = 'Variance explained by PCA, min = 0, max = 1. Default is 0.80')
 parser.add_option('-t', '--threshold', type = 'float', dest = 'thres',
                   default = 10, help = 'Fraction of WT outliers in a population, min = 0, max = 100. Default is 10')
+parser.add_option('-o', '--savepca', dest='save_pca', action='store_true',
+                  help='Use this flag to save PCA results')
 parser.add_option('-m', '--heatmap', dest='heatmap', action='store_true',
                   help="Use this flag if input data has Row and Column information. This will generate a heatmap "
                        "representing the penetrance values for each plate's wells")
@@ -39,11 +39,11 @@ rawdata = options.data_type
 identifier = options.identifier
 features_file = options.features_file
 locations_file = options.locations_file
-save_pca = options.output_pca
 neg_control_file = options.negcontrol_file
 pos_control_file = options.poscontrol_file
 variance = options.var
 outlier_threshold = options.thres
+save_pca = options.save_pca
 heatmap = options.heatmap
 
 # Screen name from the input filename
