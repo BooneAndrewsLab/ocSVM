@@ -1,0 +1,51 @@
+name: ocSVM
+channels:
+  - intel
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - libgcc-ng=9.1.0=hdf63c60_0
+  - patsy=0.5.1=py36_0
+  - seaborn=0.9.0=py36_0
+  - statsmodels=0.10.0=py36hdd07704_0
+  - bzip2=1.0.6=17
+  - certifi=2018.1.18=py36_2
+  - cycler=0.10.0=py36_7
+  - daal=2019.4=intel_243
+  - daal4py=2019.4=py36h7b7c402_6
+  - freetype=2.9=3
+  - icc_rt=2019.4=intel_243
+  - impi_rt=2019.4=intel_243
+  - intel-openmp=2019.4=intel_243
+  - intelpython=2019.4=0
+  - kiwisolver=1.0.1=py36_2
+  - libpng=1.6.36=2
+  - matplotlib=3.0.3=py36_4
+  - mkl=2019.4=intel_243
+  - mkl_fft=1.0.13=py36h7b7c402_1
+  - mkl_random=1.0.4=py36h7b7c402_1
+  - numexpr=2.6.8=py36_2
+  - numpy=1.16.2=py36h7b7c402_0
+  - numpy-base=1.16.2=py36_0
+  - openssl=1.0.2r=2
+  - pandas=0.24.1=py36_3
+  - pip=10.0.1=py36_0
+  - pyparsing=2.2.0=py36_2
+  - python=3.6.8=7
+  - python-dateutil=2.6.0=py36_12
+  - pytz=2018.4=py36_3
+  - scikit-learn=0.20.3=py36h7b7c402_5
+  - scipy=1.2.1=py36h7b7c402_3
+  - setuptools=39.0.1=py36_0
+  - six=1.11.0=py36_3
+  - sqlite=3.27.2=6
+  - tbb=2019.6=intel_243
+  - tbb4py=2019.6=py36_intel_0
+  - tcl=8.6.4=24
+  - tk=8.6.4=29
+  - wheel=0.31.0=py36_3
+  - xz=5.2.3=2
+  - zlib=1.2.11=5
+  - pip:
+    - ppca==0.0.4
+
