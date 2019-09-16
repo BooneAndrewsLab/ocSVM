@@ -1,9 +1,0 @@
-ImageNumber
-ObjectNumber
-filename
-plate_number
-well_number
-series_number
-ORF
-gene_name
-row_id
