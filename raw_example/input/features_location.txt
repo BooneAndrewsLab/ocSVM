@@ -1,0 +1,6 @@
+StrainID
+Plate
+Row
+Column
+Plane
+Timepoint

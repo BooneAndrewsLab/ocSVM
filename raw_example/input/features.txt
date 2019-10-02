@@ -1,0 +1,177 @@
+Tracked Nuclei DAPI Selected - Intensity Cell EGFP Mean
+Tracked Nuclei DAPI Selected - Intensity Cell EGFP StdDev
+Tracked Nuclei DAPI Selected - Intensity Cell EGFP CV [%]
+Tracked Nuclei DAPI Selected - Cell Area [µm²]
+Tracked Nuclei DAPI Selected - Cell Roundness
+Tracked Nuclei DAPI Selected - Cell Width [µm]
+Tracked Nuclei DAPI Selected - Cell Length [µm]
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% 
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% 
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% 
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% 
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length 
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio 
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean 
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation 
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Bright
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Dark
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Ridge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Valley
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Spot
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Hole
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Saddle
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 02 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 03 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 04 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 05 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 12 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 13 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 14 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Symmetry 15 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 30% SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 40% SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 50% SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Threshold Compactness 60% SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Small Length SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Axial Length Ratio SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Relative Deviation SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Radial Mean Ratio SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 1/2 SER-Edge
+Tracked Nuclei DAPI Selected - Cell_GFP Profile 2/2 SER-Edge
