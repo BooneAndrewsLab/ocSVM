@@ -1,0 +1,4 @@
+ORF,Name,Allele,StrainID,Plate,Row,Column,Time,Num_cells,Num_wells,Penetrance,P-value
+YER012W,PRE1,pre1-1,tsa289,1,2,2,6,478,1,100.0,0.0
+YGR185C,TYS1,tys1-1,tsa290,1,2,4,6,480,1,100.0,0.0
+YOR202W,HIS3,his3,tsa1,1,1,1,6,495,1,44.04040404040404,0.0
