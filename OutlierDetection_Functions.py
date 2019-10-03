@@ -730,17 +730,17 @@ def prepare_output_well(df, plates, output, rawdata, identifier_features, locati
     # Create new dataframe from dict
     append_list = identifier_features + location_features + ['Is_Inlier']
     final_df = dataframe_from_dict(df, append_list)
-    if not rawdata:
+    if 'Row' in final_df.columns:
         well_identifier = 'Row_Col'
     else:
         for f in location_features:
             if 'well' in f.lower():
                 well_identifier = f
 
-    if not rawdata:
+    try:
         final_df[well_identifier] = final_df.Row.map(int).map(str) + '_' + final_df.Column.map(int).map(str)
-    else:
-        final_df[well_identifier] = final_df.well_number.map(str)
+    except AttributeError:
+        final_df[well_identifier] = final_df[well_identifier].map(str)
 
     # Initialize output folder
     final_df_output = pd.DataFrame(columns = identifier_features + location_features +
@@ -803,13 +803,16 @@ def prepare_output_strain(df, identifier, output, rawdata, identifier_features, 
     # Create new dataframe from dict
     append_list = identifier_features + location_features + ['Is_Inlier']
     final_df = dataframe_from_dict(df, append_list)
-    if not rawdata:
+    try:
         final_df['Well'] = final_df.Plate.map(int).map(str) + '_' + \
                        final_df.Row.map(int).map(str) + '_' + \
                        final_df.Column.map(int).map(str)
-    else:
+    except AttributeError:
+        for f in location_features:
+            if 'well' in f.lower():
+                well_identifier = f
         final_df['Well'] = final_df.Plate.map(int).map(str) + '_' + \
-                       final_df.well_number.map(str)
+                       final_df[well_identifier].map(str)
 
     # Initialize output folder
     final_df_output = pd.DataFrame(columns = identifier_features + location_features  +

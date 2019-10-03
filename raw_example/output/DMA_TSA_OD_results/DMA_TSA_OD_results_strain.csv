@@ -1,0 +1,3 @@
+StrainID,Plate,Row,Column,Plane,Timepoint,Num_cells,Num_wells,Penetrance,P-value
+TSA,1,5,1,1,0,48,1,100.0,0.0
+DMA,1,1,1,1,0,81,2,44.44444444444444,0.0
