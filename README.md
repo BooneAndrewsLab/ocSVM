@@ -95,3 +95,9 @@ There are two sets of available example dataset:
 _cp_example_: CellProfiler data file <br />
 _raw_example_: raw input data file
 
+Usage:
+
+_cp_example_: python OutlierDetection.py -f cp_example/input/CDC11_Rep1.csv -i ORF -n cp_example/input/negative_controls.txt
+
+_raw_example_:  python OutlierDetection.py -f raw_example/input/DMA_TSA.csv -r -i StrainID -s raw_example/input/features.txt 
+-l raw_example/input/features_location.txt -n raw_example/input/negative_controls.txt -o

@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import time
+import pickle
 import itertools
 import matplotlib
 import numpy as np
@@ -36,6 +37,7 @@ def prepare_output_filenames(screen_name):
               'ODresultsWell': '%s/%s_OD_results_well.csv' % (folder_name, screen_name),
               'ODresultsStrain': '%s/%s_OD_results_strain.csv' % (folder_name, screen_name),
               'PCAResult': '%s/%s_PCA.csv' % (folder_name, screen_name),
+              'DataPostPCA': '%s/%s_data_after_PCA.pkl' % (folder_name, screen_name),
               'PCACellsPNG': '%s/%s_PCA_cells.png' % (folder_name, screen_name),
               'PCACellsSVG': '%s/%s_PCA_cells.svg' % (folder_name, screen_name),
               'PCAExplainedVariance': '%s/%s_PCA_explained_variance.txt' % (folder_name, screen_name),
@@ -63,7 +65,7 @@ def log_write(log_f, text):
                 log_f:  Log file
                 text:   Something to write to log file
             """
-    
+
     f = open(log_f, 'a')
     f.write(text)
     f.close()
@@ -375,7 +377,7 @@ def extract_plate_information(filename, screen_name, wt, identifier, rawdata, fe
     return df, plates, CP_features, identifier_features, location_features
 
 
-def do_PCA(df, output, var, feature_set, save_pca, identifier_features, location_features):
+def do_PCA(df, output, var, feature_set, identifier_features, location_features):
     """ Perform PCA or probabilistic PCA depending on nan values.
 
             Args:
@@ -397,19 +399,24 @@ def do_PCA(df, output, var, feature_set, save_pca, identifier_features, location
         df, exp_var, num_PCs, PCA_feature_loadings = do_probabilistic_PCA(df, var, output)
     else:
         df, exp_var, num_PCs, PCA_feature_loadings = do_regular_PCA(df, var, output)
-    
-    if save_pca:
-        pca_df = pd.DataFrame()
-        for f in identifier_features:
+
+    # save PCA
+    pca_df = pd.DataFrame()
+    for f in identifier_features:
+        pca_df[f] = df[f]
+    for f in location_features:
+        if 'plate' not in f.lower():
             pca_df[f] = df[f]
-        for f in location_features:
-            if 'plate' not in f.lower():
-                pca_df[f] = df[f]
-            else:
-                pca_df['Plate'] = df['Plate']
-        for i in range(num_PCs):
-            pca_df['PC%d' %(i+1)] = df['DataPCA'][:,i]
-        pca_df.to_csv(output['PCAResult'], index=False)
+        else:
+            pca_df['Plate'] = df['Plate']
+    for i in range(num_PCs):
+        pca_df['PC%d' %(i+1)] = df['DataPCA'][:,i]
+    pca_df.to_csv(output['PCAResult'], index=False)
+
+    # Save combined dictionary to a pickle file
+    f = open(output['DataPostPCA'], "wb")
+    pickle.dump(df, f)
+    f.close()
 
     # Save correlation matrix of PCs and features
     save_PCA_feature_correlation(df, num_PCs, feature_set, output)
@@ -548,6 +555,57 @@ def save_PCA_feature_correlation(df, num_PCs, feature_set, output):
 
     pca_feat_corr = pca_feat_corr.set_index([PCA_columns])
     pca_feat_corr.to_csv(path_or_buf=output['PCAFeatureCorrelations'])
+
+
+def skip_pca(output_files, rawdata, identifier, locations_file):
+    """ Load post PCA data
+            Args:
+                output_files:           Output filenames
+                rawdata:                Identifier if input data is raw or not
+                identifier:             Unique identifier
+                locations_file:         Path to file containing location features
+
+            Return:
+                df:                     Combined dictionary
+                plates:                 List of unique plates
+                identifier_features:    List of identifier features
+                location_features:      List of location features containing coordinate information
+    """
+
+    print('Skipping PCA...')
+    log_write(output_files['log'], 'Skipping PCA...\n')
+
+    # Load post PCA data
+    with open(output_files['DataPostPCA'], 'rb') as f:
+        df = pickle.load(f)
+        f.close()
+
+    # Get unique plates
+    plates = list(set(df['Plate']))
+
+    # Get identifier and location features
+    df_keys = list(df.keys())
+    not_features = ['Data', 'DataScaled', 'Mask_WT', 'DataPCA']
+    for x in not_features:
+        df_keys.remove(x)
+    location_features = []
+    identifier_features = []
+    if not rawdata:
+        location_features.extend(['Plate', 'Row', 'Column', 'Time'])
+        for x in df_keys:
+            if x not in location_features:
+                identifier_features.append(x)
+    else:
+        locfile = open(locations_file, 'r')
+        other_features = list(filter(None, [x.strip() for x in locfile.readlines()]))
+        locfile.close()
+        for x in other_features:
+            if x.lower() != identifier.lower():
+                location_features.append(x)
+            else:
+                identifier_features.append(x)
+
+    return df, plates, identifier_features, location_features
 
 
 def OneClassSVM_method(df, output, out_threshold, identifier_features, location_features):

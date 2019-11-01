@@ -2,6 +2,7 @@
 
 from OutlierDetection_Functions import *
 from optparse import OptionParser
+import pickle
 
 # Ignore warnings
 os.system('export PYTHONWARNINGS="ignore"')
@@ -26,8 +27,9 @@ parser.add_option('-v', '--variance', type = 'float', dest = 'var',
                   default = 0.80, help = 'Variance explained by PCA, min = 0, max = 1. Default is 0.80')
 parser.add_option('-t', '--threshold', type = 'float', dest = 'thres',
                   default = 10, help = 'Fraction of WT outliers in a population, min = 0, max = 100. Default is 10')
-parser.add_option('-o', '--savepca', dest='save_pca', action='store_true',
-                  help='Use this flag to save PCA results')
+parser.add_option('-o', '--do-outlier', dest='do_outlier', action='store_true',
+                  help='Use this flag to start the analysis on Outlier Detection. ONLY use this if PCA files are '
+                       'available')
 parser.add_option('-m', '--heatmap', dest='heatmap', action='store_true',
                   help="Use this flag if input data has Row and Column information. This will generate a heatmap "
                        "representing the penetrance values for each plate's wells")
@@ -43,7 +45,7 @@ neg_control_file = options.negcontrol_file
 pos_control_file = options.poscontrol_file
 variance = options.var
 outlier_threshold = options.thres
-save_pca = options.save_pca
+do_outlier = options.do_outlier
 heatmap = options.heatmap
 
 # Screen name from the input filename
@@ -53,17 +55,20 @@ screen_name = filename.split('/')[-1][:-4]
 wt_strains = [x.strip() for x in open(neg_control_file, 'r').readlines()]
 
 if __name__ == '__main__':
-    # Scale data for each plate and reduce dimensions
-    df, plates, CP_features, identifier_features, location_features = extract_plate_information(filename, screen_name,
-                                                                                                wt_strains, identifier,
-                                                                                                rawdata, features_file,
-                                                                                                locations_file)
-
     # Name output files
     output_files = prepare_output_filenames(screen_name)
 
-    # Dimensionality Reduction
-    df = do_PCA(df, output_files, variance, CP_features, save_pca, identifier_features, location_features)
+    if not do_outlier:
+        # Scale data for each plate and reduce dimensions
+        df, plates, CP_features, identifier_features, location_features = extract_plate_information(filename, screen_name,
+                                                                                                    wt_strains, identifier,
+                                                                                                    rawdata, features_file,
+                                                                                                    locations_file)
+
+        # Dimensionality Reduction
+        df = do_PCA(df, output_files, variance, CP_features, identifier_features, location_features)
+    else:
+        df, plates, identifier_features, location_features = skip_pca(output_files, rawdata, identifier, locations_file)
 
     # Outlier detection
     df = OneClassSVM_method(df, output_files, outlier_threshold, identifier_features, location_features)
