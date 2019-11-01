@@ -26,7 +26,7 @@ Usage
 ```
 python OutlierDetection.py -f <input_file> <data_type> -i <identifier> 
 -s <features_file> -l <locations_file> -n <negcontrol_file> -p <poscontrol_file>
--v <variance> -t <threshold> <save_pca> <heatmap> 
+-v <variance> -t <threshold> <do_outlier> <heatmap> 
 ```
 
 ## Input Options
@@ -83,21 +83,26 @@ _Examples:_
 
 **--threshold (-t)**: Fraction of WT outliers in a population, min = 0, max = 100. Default is 10
 
-**--savepca (-o)**: Use this flag to save PCA results
+**--do-outlier (-o)**: Use this flag to start the analysis on Outlier Detection. ONLY use this if PCA files are available
 
 **--heatmap (-m)**: Use this flag if input data has Row and Column information. This will 
 generate a heatmap representing the penetrance values for each plate's wells
 
-## Examples
+## Datasets
 
 There are two sets of available example dataset:
 
 _cp_example_: CellProfiler data file <br />
 _raw_example_: raw input data file
 
-Usage:
+## Sample Usage
 
-_cp_example_: python OutlierDetection.py -f cp_example/input/CDC11_Rep1.csv -i ORF -n cp_example/input/negative_controls.txt
+* python OutlierDetection.py -f cp_example/input/CDC11_Rep1.csv -i ORF -n cp_example/input/negative_controls.txt
+* python OutlierDetection.py -f raw_example/input/DMA_TSA.csv -r -i StrainID -s raw_example/input/features.txt 
+-l raw_example/input/features_location.txt -n raw_example/input/negative_controls.txt
 
-_raw_example_:  python OutlierDetection.py -f raw_example/input/DMA_TSA.csv -r -i StrainID -s raw_example/input/features.txt 
+or if you've previously ran the script, obtained PCA results, and would like to jump to Outlier Detection analysis, use:
+* python OutlierDetection.py -f cp_example/input/CDC11_Rep1.csv -i ORF -n cp_example/input/negative_controls.txt -o
+* python OutlierDetection.py -f raw_example/input/DMA_TSA.csv -r -i StrainID -s raw_example/input/features.txt 
 -l raw_example/input/features_location.txt -n raw_example/input/negative_controls.txt -o
+
