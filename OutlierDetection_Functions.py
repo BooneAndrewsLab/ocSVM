@@ -684,7 +684,7 @@ def GMM_method(df, output, out_threshold, num_components, cov_type, identifier_f
     dist_to_border = - gmm.score_samples(df['DataPCA']).ravel()
 
     # Threshold and plot data
-    threshold = stats.scoreatpercentile(df['score'][df['Mask_WT'] == 1], 100 - out_threshold)
+    threshold = stats.scoreatpercentile(dist_to_border[df['Mask_WT'] == 1], 100 - out_threshold)
     df['Is_Inlier'] = dist_to_border <= threshold
     plot_title = 'Outlier Detection using GMM'
     plot_in_outliers(df['DataPCA'], df['Is_Inlier'], plot_title, output)

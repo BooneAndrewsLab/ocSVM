@@ -11,17 +11,17 @@ dependencies:
   - bzip2=1.0.6=17
   - certifi=2018.1.18=py36_2
   - cycler=0.10.0=py36_7
-  - daal=2019.4=intel_243
+  - daal=2019.4
   - daal4py=2019.4=py36h7b7c402_6
   - freetype=2.9=3
-  - icc_rt=2019.4=intel_243
-  - impi_rt=2019.4=intel_243
-  - intel-openmp=2019.4=intel_243
+  - icc_rt=2019.4
+  - impi_rt=2019.4
+  - intel-openmp=2019.4
   - intelpython=2019.4=0
   - kiwisolver=1.0.1=py36_2
   - libpng=1.6.36=2
   - matplotlib=3.0.3=py36_4
-  - mkl=2019.4=intel_243
+  - mkl=2019.4
   - mkl_fft=1.0.13=py36h7b7c402_1
   - mkl_random=1.0.4=py36h7b7c402_1
   - numexpr=2.6.8=py36_2
@@ -39,7 +39,7 @@ dependencies:
   - setuptools=39.0.1=py36_0
   - six=1.11.0=py36_3
   - sqlite=3.27.2=6
-  - tbb=2019.6=intel_243
+  - tbb=2019.6
   - tbb4py=2019.6=py36_intel_0
   - tcl=8.6.4=24
   - tk=8.6.4=29
