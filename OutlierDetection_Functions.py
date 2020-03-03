@@ -620,7 +620,7 @@ def OneClassSVM_method(df, output, out_threshold, identifier_features, location_
                 df:             With in-outlier information
     """
 
-    log_write(output['log'], 'Outlier detection...\n')
+    log_write(output['log'], 'Outlier detection using OneClassSVM...\n')
     start_time = time.time()
 
     # Create a subset with only WT cells and fit the model
@@ -655,6 +655,61 @@ def OneClassSVM_method(df, output, out_threshold, identifier_features, location_
     text = 'Outlier detection method: One-Class SVM\n'
     text += 'WT outlier threshold: %.2f%%\n' % out_threshold
     text += 'Outlier detection runtime: %.2f minutes\n' % ((time.time()-start_time)/60.0)
+    text += 'Number of samples: %d\n' % dist_to_border.shape[0]
+    text += 'Number of negative samples: %d\n' % dist_to_border[df['Mask_WT'] == 1].shape[0]
+    log_write(output['log'], text)
+
+    return df
+
+
+def GMM_method(df, output, out_threshold, num_components, cov_type, identifier_features, location_features):
+    """ Outlier Detection with Mahalanobis Distance Method.
+
+            Args:
+                df:             Existing combined dictionary
+                output:         Output filenames
+                out_threshold:  WT threshold on the right tail to decide on outlier boundary
+                num_components: Number of components for GMM method
+                cov_type:       Covariance type of Gaussian Mixture
+
+            Return:
+                df:             With in-outlier information
+            """
+    log_write(output['log'], 'Outlier detection using GMM...\n')
+    start_time = time.time()
+
+    # Create a subset with only WT cells and fit the model
+    gmm = mixture.GaussianMixture(n_components=num_components, covariance_type=cov_type)
+    gmm.fit(df['DataPCA'][df['Mask_WT'] == 1])
+    dist_to_border = - gmm.score_samples(df['DataPCA']).ravel()
+
+    # Threshold and plot data
+    threshold = stats.scoreatpercentile(df['score'][df['Mask_WT'] == 1], 100 - out_threshold)
+    df['Is_Inlier'] = dist_to_border <= threshold
+    plot_title = 'Outlier Detection using GMM'
+    plot_in_outliers(df['DataPCA'], df['Is_Inlier'], plot_title, output)
+
+    # Plot the distances as a histogram
+    plot_title = 'GMM: Negative log posterior probability'
+    plot_score_histogram(df['Is_Inlier'], dist_to_border, threshold, plot_title, output)
+
+    # Save scores
+    scores_df = pd.DataFrame()
+    for f in identifier_features:
+        scores_df[f] = df[f]
+    for f in location_features:
+        if 'plate' not in f.lower():
+            scores_df[f] = df[f]
+        else:
+            scores_df['Plate'] = df['Plate']
+    scores_df['score'] = dist_to_border
+    scores_df['is_inlier'] = df['Is_Inlier']
+    scores_df.to_csv(output['ScoreCells'], index=False)
+
+    # Print OD runtime
+    text = 'Outlier detection method: GMM-%dcomponents with %s covariance\n' % (num_components, cov_type)
+    text += 'WT outlier threshold: %.2f%%\n' % out_threshold
+    text += 'Outlier detection runtime: %.2f minutes\n' % ((time.time() - start_time) / 60.0)
     text += 'Number of samples: %d\n' % dist_to_border.shape[0]
     text += 'Number of negative samples: %d\n' % dist_to_border[df['Mask_WT'] == 1].shape[0]
     log_write(output['log'], text)

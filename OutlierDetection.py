@@ -33,6 +33,12 @@ parser.add_option('-o', '--do-outlier', dest='do_outlier', action='store_true',
 parser.add_option('-m', '--heatmap', dest='heatmap', action='store_true',
                   help="Use this flag if input data has Row and Column information. This will generate a heatmap "
                        "representing the penetrance values for each plate's wells")
+parser.add_option('-d', '--dist-method', type='str', dest='dist',
+                  default = 'OneClassSVM', help = 'Distance method: OneClassSVM - GMM')
+parser.add_option('-c', '--components', type=int, dest='components',
+                 default=3, help='Number of components for GMM method')
+parser.add_option('-y', '--cov_type', type='str', dest='cov_type',
+                  default='full', help='Covariance type for GMM method: full, diag')
 (options, args) = parser.parse_args()
 
 # Options
@@ -47,6 +53,9 @@ variance = options.var
 outlier_threshold = options.thres
 do_outlier = options.do_outlier
 heatmap = options.heatmap
+distance_method = options.dist
+cov_type = options.cov_type
+num_components = options.components
 
 # Screen name from the input filename
 screen_name = filename.split('/')[-1][:-4]
@@ -71,7 +80,11 @@ if __name__ == '__main__':
         df, plates, identifier_features, location_features = skip_pca(output_files, rawdata, identifier, locations_file)
 
     # Outlier detection
-    df = OneClassSVM_method(df, output_files, outlier_threshold, identifier_features, location_features)
+    if distance_method.upper() == 'ONECLASSSVM':
+        df = OneClassSVM_method(df, output_files, outlier_threshold, identifier_features, location_features)
+    else:
+        df = GMM_method(df, output_files, outlier_threshold, num_components, cov_type,
+                        identifier_features, location_features)
 
     # Prepare penetrance files
     df_OUT = prepare_output_well(df, plates, output_files, rawdata, identifier_features, location_features)
